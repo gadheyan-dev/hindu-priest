@@ -5,6 +5,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import PetalLayer from "@/components/PetalLayer";
 import TempleAudio from "@/components/TempleAudio";
+import LoadingAnimation from "@/components/LoadingAnimation";
 
 const cinzel = Cinzel({
   subsets: ["latin"],
@@ -39,6 +40,7 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${cinzel.variable} ${notoSerif.variable}`}>
       <body>
+        <LoadingAnimation />
         <PetalLayer />
         <Header />
         <main className="min-h-screen">{children}</main>

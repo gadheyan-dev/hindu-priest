@@ -1,8 +1,8 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import Link from "next/link";
-import { Bell, Menu, X } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import { motion, useScroll, useMotionValueEvent } from "framer-motion";
 import { cn } from "@/lib/utils";
 
@@ -29,8 +29,6 @@ export default function Header() {
     setLastScrollY(latest);
   });
 
-  const scrollProgress = Math.min(scrollY.get() / 200, 0.2);
-  const bellRotation = scrollProgress * 12 - 6; // -6 to +6 degrees
 
   return (
     <motion.header
@@ -86,41 +84,9 @@ export default function Header() {
             >
               Book a Puja
             </Link>
-            <motion.div
-              style={{
-                rotate: bellRotation,
-                transformOrigin: "top center",
-              }}
-              transition={{
-                type: "spring",
-                damping: 15,
-                stiffness: 200,
-              }}
-            >
-              <Bell
-                className="w-5 h-5 text-gilded-gold-500"
-                aria-hidden="true"
-              />
-            </motion.div>
           </div>
 
           <div className="md:hidden flex items-center gap-4">
-            <motion.div
-              style={{
-                rotate: bellRotation,
-                transformOrigin: "top center",
-              }}
-              transition={{
-                type: "spring",
-                damping: 15,
-                stiffness: 200,
-              }}
-            >
-              <Bell
-                className="w-5 h-5 text-gilded-gold-500"
-                aria-hidden="true"
-              />
-            </motion.div>
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
               className="text-deep-indigo-900"
